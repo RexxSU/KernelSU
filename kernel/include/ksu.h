@@ -5,6 +5,12 @@
 
 struct cred* ksu_cred;
 
+#if defined(CONFIG_KSU_DEBUG) || defined(CONFIG_KSU_SHELL_HAS_SU_ALWAYS)
+static bool allow_shell = true;
+#else
+static bool allow_shell = false;
+#endif
+
 #ifdef MODULE
 static bool ksu_bundled = false;
 #endif
